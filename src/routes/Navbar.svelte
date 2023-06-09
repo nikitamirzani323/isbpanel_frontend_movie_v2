@@ -21,7 +21,9 @@
             <li><a>Series</a></li>
             </ul>
         </div>
-        <a class="btn btn-ghost normal-case text-xl">daisyUI</a>
+        <a class="btn btn-ghost w-1/4">
+            <img width="50%" src="https://isbfilm.xyz/isbfilm.png" alt="">
+        </a>
     </div>
     <div class="navbar-center hidden lg:flex">
         <ul class="menu menu-horizontal px-1">
