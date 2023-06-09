@@ -2,6 +2,12 @@
     export let data;
     const {slug,content} = data;
 </script>
+<div class="text-sm breadcrumbs">
+    <ul>
+        <li><a href="/">Home</a></li> 
+        <li>Super Mario Bros</li>
+    </ul>
+  </div>
 <section class="grid grid-cols-2 gap-1 mb-3">
     <img src="https://s1.makimbo.xyz/assets/player-single.gif" alt="">
     <img src="https://s1.makimbo.xyz/assets/player-single.gif" alt="">
@@ -11,8 +17,28 @@
         <iframe width="100%" height="500" src="https://dooood.com/e/kv01syii877b" 
             title="YouTube video player" 
             frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            <h1>{slug}</h1>
-            <p>{content}</p>
+        
+        <center class="w-full mt-2">
+            <img src="https://s1.makimbo.xyz/assets/below-player-jun.gif" alt="">
+        </center>
+        <section class="w-full bg-base-200 p-2 mt-3">
+            <h1 class="text-xs lg:text-lg font-medium mb-5">
+                ISBFILM NONTON FAST X (2023) FILM SUBTITLE INDONESIA STREAMING MOVIE DOWNLOAD GRATIS ONLINE
+            </h1>
+            <section class="flex justify-items-start gap-1 mb-5">
+                <section class="w-1/3 bg-yellow-100">
+                    <img src="https://image.tmdb.org/t/p/w780//qNBAXBIQlnOThrVvA6mA2B5ggV6.jpg" alt="ISBFILM Nonton Super Mario Bross" />
+                </section>
+                <section class="w-full ml-10">
+                    <p>
+                        Dom Toretto dan keluarganya menjadi sasaran putra gembong narkoba Hernan Reyes yang pendendam
+                    </p>
+                </section>
+            </section>
+        </section>
+        <section class="w-full bg-base-200 p-2 mt-3">
+            <p>comment</p>
+        </section>
     </section>
     <aside class="w-full lg:w-1/2">
         <center class="mb-5">

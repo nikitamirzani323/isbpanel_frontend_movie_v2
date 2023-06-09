@@ -2,6 +2,25 @@
     import Seo from "$lib/Seo.svelte";
     export let data;
     const {posts} = data;
+
+    let list_genre = [
+        {slug:"action",name:"Action"},
+        {slug:"scifi",name:"Sci-fi"},
+        {slug:"horror",name:"Horror"},
+        {slug:"thailand",name:"Thailand"},
+        {slug:"chinese",name:"Chinese"},
+        {slug:"indonesia",name:"Indonesia"},
+        {slug:"animation",name:"Animation"},
+        {slug:"adventure",name:"Adventure"},
+        {slug:"adventure",name:"Drama"},
+        {slug:"adventure",name:"Documentary"},
+        {slug:"adventure",name:"Thriller"},
+        {slug:"adventure",name:"War"},
+        {slug:"adventure",name:"Family"},
+        {slug:"adventure",name:"Fantasy"},
+        {slug:"adventure",name:"Western"},
+        {slug:"adventure",name:"porn"},
+    ]
 </script>
 <Seo 
     title="Home" 
@@ -9,22 +28,10 @@
     type="Website" />
 
 <section class="mb-3">
-    <a class="btn btn-sm btn-outline btn-primary">ACTION</a>
-    <a class="btn btn-sm btn-outline btn-primary">SCI-FI</a>
-    <a class="btn btn-sm btn-outline btn-primary">HORROR</a>
-    <a class="btn btn-sm btn-outline btn-primary">THAILAND</a>
-    <a class="btn btn-sm btn-outline btn-primary">CHINESE</a>
-    <a class="btn btn-sm btn-outline btn-primary">INDONESIA</a>
-    <a class="btn btn-sm btn-outline btn-primary">ANIMATION</a>
-    <a class="btn btn-sm btn-outline btn-primary">ADVENTURE</a>
-    <a class="btn btn-sm btn-outline btn-primary">DRAMA</a>
-    <a class="btn btn-sm btn-outline btn-primary">DOCUMENTARY</a>
-    <a class="btn btn-sm btn-outline btn-primary">THRILLER</a>
-    <a class="btn btn-sm btn-outline btn-primary">WAR</a>
-    <a class="btn btn-sm btn-outline btn-primary">FAMILY</a>
-    <a class="btn btn-sm btn-outline btn-primary">FANTASY</a>
-    <a class="btn btn-sm btn-outline btn-primary">WESTERN</a>
-    <a class="btn btn-sm btn-outline btn-primary">PORN</a>
+    {#each list_genre as rec}
+    <a href="genre/{rec.slug}" class="btn btn-sm btn-outline btn-success m-1">{rec.name}</a>
+    {/each}
+    
 </section>
 
 <section class="grid grid-cols-2 gap-1 mb-3">

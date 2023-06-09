@@ -21,7 +21,7 @@
             <li><a>Series</a></li>
             </ul>
         </div>
-        <a class="btn btn-ghost w-1/4">
+        <a href="/" class="btn btn-ghost w-1/4">
             <img width="50%" src="https://isbfilm.xyz/isbfilm.png" alt="">
         </a>
     </div>
