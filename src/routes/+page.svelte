@@ -29,9 +29,8 @@
 
 <section class="mb-3">
     {#each list_genre as rec}
-    <a href="genre/{rec.slug}" class="btn btn-sm btn-outline btn-success m-1">{rec.name}</a>
+        <a href="genre/{rec.slug}" class="btn btn-sm btn-outline btn-success m-1">{rec.name}</a>
     {/each}
-    
 </section>
 
 <section class="grid grid-cols-2 gap-1 mb-3">
@@ -39,7 +38,6 @@
     <img src="https://s1.makimbo.xyz/assets/player-single.gif" alt="">
 </section>
 <section class="glass2 xl:rounded-lg p-2">
-    <h1>ISBMovie Terbaru</h1>
     <section class="grid grid-cols-6 gap-3">
     {#each posts as rec}
         <a href="/nonton/super-mario-bross" class="card bg-base-200 shadow-xl rounded-md cursor-pointer">
@@ -52,6 +50,7 @@
         </a>
     {/each}
     </section>
+    <center class="mt-5">
+        <button class="btn btn-primary w-[320px]">Tampilkan Lainnya</button>
+    </center>
 </section>
-
-<h1>ISBMovie Popular</h1>
