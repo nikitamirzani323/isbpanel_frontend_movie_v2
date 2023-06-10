@@ -1,7 +1,7 @@
 <script>
     import Seo from "$lib/Seo.svelte";
     export let data;
-    const {posts} = data;
+    const {list_movie} = data;
 
     let list_genre = [
         {slug:"action",name:"Action"},
@@ -21,6 +21,28 @@
         {slug:"adventure",name:"Western"},
         {slug:"adventure",name:"porn"},
     ]
+    // console.log(list_movie)
+
+    const loaded = new Map();
+    function lazy(node, data) {
+		if (loaded.has(data.src)) {
+			node.setAttribute('src', data.src);
+		} else {
+			// simulate slow loading network
+			setTimeout(() => {
+				const img = new Image();
+				img.src = data.src;
+				img.onload = () => {
+					loaded.set(data.src, img);
+					node.setAttribute('src', data.src); 
+				};
+			}, 100);
+		}
+
+		return {
+			destroy(){} // noop
+		};
+	}
 </script>
 <Seo 
     title="Home" 
@@ -37,20 +59,23 @@
     <img src="https://s1.makimbo.xyz/assets/player-single.gif" alt="">
     <img src="https://s1.makimbo.xyz/assets/player-single.gif" alt="">
 </section>
-<section class="glass2 xl:rounded-lg p-2">
-    <section class="grid grid-cols-6 gap-3">
-    {#each posts as rec}
-        <a href="/nonton/super-mario-bross" class="card bg-base-200 shadow-xl rounded-md cursor-pointer">
-            <figure>
-                <img src="https://image.tmdb.org/t/p/w780/{rec.poster_path}" alt="{rec.title}" />
-            </figure>
-            <div class="card-body p-2 w-full">
-                <h2 class="text-xs w-full text-center font-mono">{rec.title}</h2>
-            </div>
-        </a>
-    {/each}
-    </section>
-    <center class="mt-5">
-        <button class="btn btn-primary w-[320px]">Tampilkan Lainnya</button>
-    </center>
-</section>
+{#each list_movie as rec}
+    <article class="glass2 xl:rounded-lg p-2 mb-2">
+        <h1 class="p-2 mb-2 font-bold">ISBFILM {rec.movie_category}</h1>
+        <section class="grid grid-cols-8 gap-2">
+        {#each rec.movie_list as rec2}
+            <a href="/nonton/{rec2.movie_slug}" class="card bg-base-200 shadow-xl rounded-md cursor-pointer">
+                <img
+                    style="border: 1px solid #1e152e;background-color: none;"
+                    class="img-thumbnail"
+                    alt="{rec2.movie_title}"
+                    src="https://imagedelivery.net/W-Usm3AjeE17sxpltvGRNA/fd0287a2-353d-4b47-9a6c-9c8df2ab3f00/public"
+                    use:lazy="{{src: rec2.movie_thumbnail}}">
+                <figure class="card-body p-2 w-full">
+                    <h2 class="text-xs w-full text-center font-mono">{rec2.movie_title}</h2>
+                </figure>
+            </a>
+        {/each}
+        </section>  
+    </article>
+{/each}

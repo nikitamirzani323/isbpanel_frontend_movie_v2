@@ -1,29 +1,33 @@
-// since there's no dynamic data here, we can prerender
-// it so that it gets served as a static asset in production
+import { redis } from "$lib/server/redis";
+
 export const prerender = true;
+
 export const load = async() => {
-    const getPosts = async() => {
-        // const res = await fetch("http://localhost:5173/api/movie");
-        // const data = await res.json();
-        // const filteredData = data.slice(0,20)
-        // return filteredData
-        const res = await fetch('http://localhost:5173/api/movie', {
-            method: 'POST',
-            body: JSON.stringify({ 
+    let listmovie = []
+    const cached = await redis.get("LISTMOVIE_FRONTEND_ISBPANEL")
+    // const c_json = JSON.parse(cached);
+    
+
+    const [res_listmovie] = await Promise.all([
+        fetch("http://localhost:5173/api/movie", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
                 hostname:"hostname_client",
                 keluaran_id:"slug",
-             }),
-            headers: {
-                'content-type': 'application/json'
-            }
-        });
-        const data = await res.json();
-        // const filteredData = data.slice(0,20)
-        return data
-    };
+            }),
+        }),
+    ]);
+    const record_listmovie= await res_listmovie.json();
+    
+    
+
+   
     
 
     return {
-        posts : getPosts()
+        list_movie : record_listmovie
     }
 }
