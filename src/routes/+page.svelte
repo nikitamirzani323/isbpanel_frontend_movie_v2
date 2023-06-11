@@ -28,8 +28,8 @@
 	}
 </script>
 <Seo 
-    title="Home" 
-    descp="ini halaman home" 
+    title="ISBFILM Nonton Film dan Series Streaming Movie Layarkaca21 Dunia21 Bioskop Cinema21 Box Office Subtitle Indonesia Gratis Online Download - ISBFILM - LK21 - Layarkaca21 - Dunia21" 
+    descp="ISBFILM Nonton Film dan Series Streaming Movie Layarkaca21 Dunia21 Bioskop Cinema21 Box Office Subtitle Indonesia Gratis Online Download - ISBFILM- LK21 - Layarkaca21 - Dunia21 Box Office Cinema21 Bioskop Terlengkap Terbaru" 
     type="Website" />
 
 <article class="mb-3">
