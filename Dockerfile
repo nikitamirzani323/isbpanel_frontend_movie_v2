@@ -1,17 +1,26 @@
-FROM node:16.13.1-alpine3.14 AS builder
-WORKDIR /app
-COPY package.json package-lock.json ./
-RUN npm ci
-COPY . .
-RUN npm run build && npm prune --production
+FROM node:18-alpine AS builder
 
-FROM node:16.13.1-alpine3.14
-USER node:node
+RUN mkdir /app && mkdir /app/data
+
+COPY . /app
+
+RUN cd /app && yarn install && \
+  echo "DB_PATH=/app/data/chinook.db" > /app/.env && \
+  yarn build 
+
+
+
+FROM node:18-alpine
+
+RUN mkdir /app
+
+COPY --from=builder /app/build /app/build
+COPY --from=builder /app/package.json /app/yarn.lock /app/
+
+RUN cd /app && \ 
+  yarn install --production && \
+  yarn cache clean
+
 WORKDIR /app
-COPY --from=builder --chown=node:node /app/build ./build
-COPY --from=builder --chown=node:node /app/node_modules ./node_modules
-COPY --from=builder --chown=node:node /app/env-sample /app/.env
-COPY --chown=node:node package.json .
-ENV PORT 3010
-EXPOSE 3010
-CMD ["node","build"]
+
+CMD ["node", "build/index.js"]
