@@ -8,16 +8,19 @@
         <li>Super Mario Bros</li>
     </ul>
   </div>
-<section class="grid grid-cols-2 gap-1 mb-3">
+<article class="grid grid-cols-2 gap-1 mb-3">
     <img src="https://s1.makimbo.xyz/assets/player-single.gif" alt="">
     <img src="https://s1.makimbo.xyz/assets/player-single.gif" alt="">
-</section>
+</article>
 <article class="lg:flex justify-between w-full gap-2">
     <section class="w-full">
         <iframe width="100%" height="500" src="https://dooood.com/e/kv01syii877b" 
             title="YouTube video player" 
             frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-        
+        <section class="flex justify-end gap-1 py-2">
+            <a href="https://api.whatsapp.com/send/?text=http://localhost:5173/nonton/red-notice-2021&app_absent=0" class="btn btn-primary btn-xs">Whatsapp</a>
+            <a href="https://telegram.me/share/url?url=http://localhost:5173/nonton/red-notice-2021&text=Nonton Film Red Devil" class="btn btn-primary btn-xs">Telegram</a>
+        </section>
         <center class="w-full mt-2">
             <img src="https://s1.makimbo.xyz/assets/below-player-jun.gif" alt="">
         </center>
