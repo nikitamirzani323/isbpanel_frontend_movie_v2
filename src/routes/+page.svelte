@@ -1,7 +1,7 @@
 <script>
     import Seo from "$lib/Seo.svelte";
     export let data;
-    const {list_genre, list_movie_new,list_movie_update} = data;
+    const {list_genre, list_movie_new,list_movie_update,seo_url} = data;
 
     const loaded = new Map();
     function lazy(node, data) {
@@ -27,6 +27,7 @@
 <Seo 
     title="ISBFILM Nonton Film dan Series Streaming Movie Layarkaca21 Dunia21 Bioskop Cinema21 Box Office Subtitle Indonesia Gratis Online Download - ISBFILM - LK21 - Layarkaca21 - Dunia21" 
     descp="ISBFILM Nonton Film dan Series Streaming Movie Layarkaca21 Dunia21 Bioskop Cinema21 Box Office Subtitle Indonesia Gratis Online Download - ISBFILM- LK21 - Layarkaca21 - Dunia21 Box Office Cinema21 Bioskop Terlengkap Terbaru" 
+    url="{seo_url}"
     type="Website" />
 
 <article class="mb-3">

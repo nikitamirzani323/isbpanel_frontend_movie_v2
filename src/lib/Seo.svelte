@@ -3,8 +3,12 @@
     export let title;
     export let descp;
     export let type;
+    // export let url;
     
+
     $: url = $page.url.href;
+
+    console.log($page.url.href)
 </script>
 <svelte:head>
     <title>{title}</title>

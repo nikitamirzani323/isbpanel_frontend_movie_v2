@@ -14,3 +14,4 @@ COPY --chown=node:node package.json .
 ENV PORT 3017
 EXPOSE 3017
 CMD ["node","build"]
+

@@ -1,7 +1,7 @@
 <script>
     import Seo from "$lib/Seo.svelte";
     export let data;
-    const {list_genre,list_movie,slug} = data;
+    const {list_genre,list_movie,slug,seo_url} = data;
     // const genre = list_movie.genre
     const genre = list_movie.genre.charAt(0).toUpperCase() + list_movie.genre.toLowerCase().slice(1)
     let seo_title = "Kumpulan Film "+genre+" Streaming Movie Subtitle Indonesia Download Terlengkap dan Terbaru- ISBFILM - LK21 - Layarkaca21 - Dunia21"
@@ -32,6 +32,7 @@
 <Seo 
     title="{seo_title}" 
     descp="{seo_descp}" 
+    url="{seo_url}"
     type="Website" />
 
 <article class="mb-3">

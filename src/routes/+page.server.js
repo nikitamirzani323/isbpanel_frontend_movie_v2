@@ -1,13 +1,14 @@
 import { error } from '@sveltejs/kit';
 import { redis } from "$lib/server/redis";
 
-export const prerender = true;
+// export const prerender = false;
 
 export const load = async({url}) => {
     const PATH = url.origin
+    const seo_url = url.href
     const cached = await redis.get("LISTMOVIE_FRONTEND_ISBPANEL")
     // const c_json = JSON.parse(cached);
-    // console.log(url.origin)
+    // console.log(PATH)
 
     const [res_listmovie_new,res_listmovie_update,res_listgenre] = await Promise.all([
         fetch("http://128.199.241.112:5058/api/movie", {
@@ -17,9 +18,9 @@ export const load = async({url}) => {
                 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODY1MzI3NTQsIm5hbWUiOiI_KSlYaF5eXFwsK2xcXD8sSil8NzAifQ.ZnEJe4TQUPv0b4HFsRad63znw73anBr2CN42BE1osYQ',
             },
             body: JSON.stringify({
-                "client_hostname": url.host,
+                "client_hostname": PATH,
                 "movie_search":"",
-                "movie_tipe":"New",
+                "movie_tipe":"NEW",
                 "movie_page":0,
             }),
         }),
@@ -30,7 +31,7 @@ export const load = async({url}) => {
                 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODY1MzI3NTQsIm5hbWUiOiI_KSlYaF5eXFwsK2xcXD8sSil8NzAifQ.ZnEJe4TQUPv0b4HFsRad63znw73anBr2CN42BE1osYQ',
             },
             body: JSON.stringify({
-                "client_hostname": url.host,
+                "client_hostname": PATH,
                 "movie_search":"",
                 "movie_tipe":"UPDATE",
                 "movie_page":0,
@@ -43,7 +44,7 @@ export const load = async({url}) => {
                 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODY1MzI3NTQsIm5hbWUiOiI_KSlYaF5eXFwsK2xcXD8sSil8NzAifQ.ZnEJe4TQUPv0b4HFsRad63znw73anBr2CN42BE1osYQ',
             },
             body: JSON.stringify({
-                "client_hostname": url.host,
+                "client_hostname": PATH,
             }),
         }),
     ]);
@@ -64,5 +65,6 @@ export const load = async({url}) => {
         list_genre : record_listgenre.record,
         list_movie_new : record_listmovie_new,
         list_movie_update : record_listmovie_update,
+        seo_url: seo_url,
     }
 }

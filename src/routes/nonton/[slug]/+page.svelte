@@ -1,7 +1,7 @@
 <script>
     import Seo from "$lib/Seo.svelte";
     export let data;
-    const {list_movie} = data;
+    const {list_movie,seo_url} = data;
 
     let movie_title = ""
     let movie_descp = ""
@@ -29,8 +29,9 @@
     };
 </script>
 <Seo 
-    title="LK21 Nonton Fast X (2023) Film dan Series Streaming Download Movie Cinema21 Bioskop Subtitle Indonesia &raquo; Layarkaca21 HD Dunia21 IndoXXI [1]" 
-    descp="LK21 Nonton Fast X (2023) Film dan Series Streaming Download Movie Cinema21 Bioskop Subtitle Indonesia &raquo; Layarkaca21 HD Dunia21 IndoXXI [1]<" 
+    title="ISBFILM Nonton {movie_title} Film dan Series Streaming Download Movie Cinema21 Bioskop Subtitle Indonesia &raquo; Layarkaca21 HD Dunia21 IndoXXI [1]" 
+    descp="ISBFILM Nonton {movie_title} Film dan Series Streaming Download Movie Cinema21 Bioskop Subtitle Indonesia &raquo; Layarkaca21 HD Dunia21 IndoXXI [1]" 
+    url="{seo_url}"
     type="Website" />
 <div class="text-sm breadcrumbs">
     <ul>
