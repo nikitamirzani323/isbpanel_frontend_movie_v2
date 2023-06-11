@@ -34,7 +34,7 @@
 
 <article class="mb-3">
     {#each list_genre as rec}
-        <a href="genre/{rec.movie_genre}" class="btn btn-sm btn-outline btn-success m-1">{rec.movie_genre}</a>
+        <a href="genre/{rec.movie_genre}" class="btn btn-xs btn-outline btn-success m-1">{rec.movie_genre}</a>
     {/each}
 </article>
 
@@ -46,10 +46,10 @@
     <h1 class="p-2 mb-2 font-bold">ISBFILM Movie Terbaru</h1>
     <section class="grid grid-cols-8 gap-2">
         {#each list_movie_new.record as rec}
-        <a href="/nonton/{rec.movie_slug}" class="card bg-base-200 shadow-xl rounded-md cursor-pointer">
+        <a href="/nonton/{rec.movie_slug}" class="card bg-base-200 shadow-xl rounded-md cursor-pointer p-1">
             <img
                 style="border: 1px solid #1e152e;background-color: none;"
-                class="img-thumbnail"
+                class="object-cover rounded-md"
                 alt="{rec.movie_title}"
                 src="https://imagedelivery.net/W-Usm3AjeE17sxpltvGRNA/fd0287a2-353d-4b47-9a6c-9c8df2ab3f00/public"
                 use:lazy="{{src: rec.movie_thumbnail}}">
@@ -64,10 +64,10 @@
     <h1 class="p-2 mb-2 font-bold">ISBFILM Movie Update</h1>
     <section class="grid grid-cols-8 gap-2">
         {#each list_movie_update.record as rec}
-        <a href="/nonton/{rec.movie_slug}" class="card bg-base-200 shadow-xl rounded-md cursor-pointer">
+        <a href="/nonton/{rec.movie_slug}" class="card bg-base-200 shadow-xl rounded-md cursor-pointer p-1">
             <img
                 style="border: 1px solid #1e152e;background-color: none;"
-                class="img-thumbnail"
+                class="object-cover rounded-md"
                 alt="{rec.movie_title}"
                 src="https://imagedelivery.net/W-Usm3AjeE17sxpltvGRNA/fd0287a2-353d-4b47-9a6c-9c8df2ab3f00/public"
                 use:lazy="{{src: rec.movie_thumbnail}}">

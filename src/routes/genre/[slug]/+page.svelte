@@ -45,13 +45,13 @@
 	}
 </script>
 <Seo 
-    title="Home" 
-    descp="ini halaman home" 
+    title="Kumpulan Film Action Streaming Movie Subtitle Indonesia Download Terlengkap dan Terbaru- ISBFILM - LK21 - Layarkaca21 - Dunia21" 
+    descp="Kumpulan Film Action Streaming Movie Subtitle Indonesia Download Terlengkap dan Terbaru- ISBFILM - LK21 - Layarkaca21 - Dunia21" 
     type="Website" />
 
 <article class="mb-3">
     {#each list_genre as rec}
-        <a href="{rec.slug}" class="btn btn-sm btn-outline btn-success m-1">{rec.name}</a>
+        <a href="{rec.slug}" class="btn btn-xs btn-outline btn-success m-1">{rec.name}</a>
     {/each}
 </article>
 
