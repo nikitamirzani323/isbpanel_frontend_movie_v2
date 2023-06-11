@@ -47,20 +47,23 @@ export const POST = async({request,url}) => {
         method: "POST",
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODY0Nzg1MTEsIm5hbWUiOiI4dXVKJHZ2NlZaWDY4Vmp1fDk1In0.-LS3xyNcWe8KSN9LJDkh-5iMP0XH6eJQmrlUNYYA2gU',
+            'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODY1MzI3NTQsIm5hbWUiOiI_KSlYaF5eXFwsK2xcXD8sSil8NzAifQ.ZnEJe4TQUPv0b4HFsRad63znw73anBr2CN42BE1osYQ',
         },
         body: JSON.stringify({
             "client_hostname": url.host,
+            "movie_search":object.movie_search,
+            "movie_tipe":object.movie_tipe,
+            "movie_page":object.movie_page,
         }),
     });
     const jsondata = await resdata.json();
-    // console.log(jsondata.record)
+    // console.log(jsondata)
     // window.localStorage.setItem("token",jsondata.token)
     
     // const filteredData = jsondata.results.slice(0,12)
     // console.log(jsondata.results)
     // console.log(object)
-    return new Response(JSON.stringify(jsondata.record),{
+    return new Response(JSON.stringify(jsondata),{
         headers:{
             "Content-Type":"application.json"
         },
