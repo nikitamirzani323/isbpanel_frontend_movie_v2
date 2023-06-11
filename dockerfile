@@ -1,25 +1,16 @@
 FROM node:18-alpine AS builder
-
-RUN mkdir /app && mkdir /app/data
-
-COPY . /app
-
-RUN cd /app && yarn install && \
-  yarn build 
-
-
+WORKDIR /app
+COPY package.json package-lock.json ./
+RUN npm ci
+COPY . .
+RUN npm run build && npm prune --production
 
 FROM node:18-alpine
-
-RUN mkdir /app
-
-COPY --from=builder /app/build /app/build
-COPY --from=builder /app/package.json /app/yarn.lock /app/
-
-RUN cd /app && \ 
-  yarn install --production && \
-  yarn cache clean
-
+USER node:node
 WORKDIR /app
-
-CMD ["node", "build/index.js"]
+COPY --from=builder --chown=node:node /app/build ./build
+COPY --from=builder --chown=node:node /app/node_modules ./node_modules
+COPY --chown=node:node package.json .
+ENV PORT 3017
+EXPOSE 3017
+CMD ["node","build"]
