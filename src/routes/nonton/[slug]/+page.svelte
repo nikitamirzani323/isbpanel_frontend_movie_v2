@@ -9,15 +9,20 @@
     let movie_genre = []
     let movie_source = []
     let source_movie = ""
-
-    for(let i=0;i<list_movie.length;i++){
-        movie_title = list_movie[i].movie_title
-        movie_descp = list_movie[i].movie_descp
-        movie_img = list_movie[i].movie_img
-        source_movie = list_movie[i].movie_src
-        movie_genre = list_movie[i].movie_genre
-        movie_source = list_movie[i].movie_video
+    // console.log(list_movie[0].movie_genre.length)
+    // for(let i=0;i<list_movie.length;i++){
+    movie_title = list_movie[0].movie_title
+    movie_descp = list_movie[0].movie_descp
+    movie_img = list_movie[0].movie_img
+    source_movie = list_movie[0].movie_src
+    if(movie_genre = list_movie[0].movie_genre != null){
+        movie_genre = list_movie[0].movie_genre
     }
+    if(list_movie[0].movie_video != null) {
+        movie_source = list_movie[0].movie_video
+    }
+        
+    // }
 
     const call_movie = (e) => {
         source_movie = e
@@ -71,7 +76,7 @@
                         {movie_descp}
                     </p>
                     {#each movie_genre as recgenre}
-                        <a data-sveltekit-reload href="/genre/{recgenre.movie_slug}" class="btn btn-xs btn-outline btn-success m-1">{recgenre.movie_genre}</a>
+                        <a href="/genre/{recgenre.movie_slug}" class="btn btn-xs btn-outline btn-success m-1">{recgenre.movie_genre}</a>
                     {/each}
                 </section>
             </section>
