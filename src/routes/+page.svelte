@@ -3,9 +3,6 @@
     export let data;
     const {list_genre, list_movie_new,list_movie_update} = data;
 
-    
-    // console.log(list_genre)
-
     const loaded = new Map();
     function lazy(node, data) {
 		if (loaded.has(data.src)) {
@@ -34,7 +31,7 @@
 
 <article class="mb-3">
     {#each list_genre as rec}
-        <a href="genre/{rec.movie_genre}" class="btn btn-xs btn-outline btn-success m-1">{rec.movie_genre}</a>
+        <a href="genre/{rec.movie_slug}" class="btn btn-xs btn-outline btn-success m-1">{rec.movie_genre}</a>
     {/each}
 </article>
 

@@ -2,43 +2,44 @@ import { redis } from "$lib/server/redis";
 
 export const prerender = true;
 
-export const load = async() => {
+export const load = async({url}) => {
+    const PATH = url.origin
     const cached = await redis.get("LISTMOVIE_FRONTEND_ISBPANEL")
     // const c_json = JSON.parse(cached);
-    
+    console.log(url.origin)
 
     const [res_listmovie_new,res_listmovie_update,res_listgenre] = await Promise.all([
-        fetch("http://localhost:5173/api/movie", {
+        fetch(PATH+"/api/movie", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                hostname:"hostname_client",
+                hostname:PATH,
                 movie_search:"",
                 movie_tipe:"NEW",
                 movie_page:0,
             }),
         }),
-        fetch("http://localhost:5173/api/movie", {
+        fetch(PATH+"/api/movie", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                hostname:"hostname_client",
+                hostname:PATH,
                 movie_search:"",
                 movie_tipe:"UPDATE",
                 movie_page:0,
             }),
         }),
-        fetch("http://localhost:5173/api/navgenre", {
+        fetch(PATH+"/api/navgenre", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                hostname:"hostname_client",
+                hostname:PATH,
             }),
         }),
     ]);
