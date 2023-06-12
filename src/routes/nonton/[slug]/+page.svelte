@@ -10,8 +10,6 @@
     let movie_source = []
     let source_movie = ""
     let movie_height = 500
-    // console.log(list_movie[0].movie_genre.length)
-    // for(let i=0;i<list_movie.length;i++){
     movie_title = list_movie[0].movie_title
     movie_descp = list_movie[0].movie_descp
     movie_img = list_movie[0].movie_img
@@ -41,12 +39,12 @@
         <li><a href="/">Home</a></li> 
         <li>{movie_title}</li>
     </ul>
-  </div>
-<article class="grid grid-cols-2 gap-1 mb-3">
+</div>
+<article class="grid grid-cols-1 lg:grid-cols-2 gap-1 mb-3 w-full">
     <img src="https://res.cloudinary.com/indosuperbet/image/upload/v1655385218/ADV/banner-gift_wp9tdh.gif" alt="ISB388">
     <img src="https://res.cloudinary.com/indosuperbet/image/upload/v1655440892/ADV/banner-isb388_dxz3im.gif" alt="ISB388">
 </article>
-<article class="lg:flex justify-between w-full gap-2">
+<article class="lg:flex  w-full gap-2">
     <section class="w-full">
         <iframe class="aspect-auto w-full h-[250px] lg:h-1/2" src="{source_movie}" 
             title="YouTube video player" 
@@ -71,18 +69,16 @@
             <h1 class="text-[11px] lg:text-lg lg:font-medium mb-5">
                 ISBFILM NONTON {movie_title} FILM SUBTITLE INDONESIA STREAMING MOVIE DOWNLOAD GRATIS ONLINE
             </h1>
-            <section class="flex justify-items-start gap-1 mb-5">
-                <section class="w-1/3">
-                    <img src="{movie_img}" alt="ISBFILM Nonton {movie_title}" />
-                </section>
-                <section class="w-full ml-10">
-                    <p class="text-xs lg:text-md justify-normal">
-                        {movie_descp}
-                    </p>
-                    {#each movie_genre as recgenre}
-                        <a href="/genre/{recgenre.movie_slug}" class="btn btn-xs btn-outline btn-success m-1">{recgenre.movie_genre}</a>
-                    {/each}
-                </section>
+        </section>
+        <section class="w-full flex mt-3">
+            <img class="w-[80px] lg:w-[150px]" src="{movie_img}" alt="ISBFILM Nonton {movie_title}" />
+            <section class="w-full ml-10 p-1">
+                <p class="text-xs lg:text-md justify-normal">
+                    {movie_descp}
+                </p>
+                {#each movie_genre as recgenre}
+                    <a href="/genre/{recgenre.movie_slug}" class="btn btn-xs btn-outline btn-success m-1">{recgenre.movie_genre}</a>
+                {/each}
             </section>
         </section>
         <section class="w-full bg-base-200 p-2 mt-3">

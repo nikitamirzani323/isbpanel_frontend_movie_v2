@@ -8,48 +8,54 @@ export const load = async({params,url}) => {
     const PATH = url.origin
     const seo_url = url.href
     const cached = await redis.get(PATH+"-token")
+    const cached_moviegender = await redis.get("MOVIEGENDER-"+params.slug)
+    const cached_gender = await redis.get("GENDER")
     let token = "";
 
     if(cached){
-        const temp_cached = JSON.parse(cached)
-        token = temp_cached.token
-        const [res_listmovie,res_listgenre] = await Promise.all([
-            fetch(PATH_API+"api/moviegenre", {
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Bearer '+token,
-                },
-                body: JSON.stringify({
-                    "client_hostname": PATH,
-                    "slug":params.slug,
-                    "movie_page":0,
+        if(cached_moviegender){
+            console.log("CACHE movieGENDER-"+params.slug)
+            const temp_moviegender_cached = JSON.parse(cached_moviegender)
+            const temp_datagender_cached = JSON.parse(cached_gender)
+            return {
+                list_genre : temp_datagender_cached.record,
+                list_movie : temp_moviegender_cached,
+                slug: params.slug,
+                seo_url: seo_url,
+            }
+        }else{
+            console.log("SERVER GENRE")
+            console.log("SERVER MOVIE GENRE "+params.slug)
+            const temp_cached = JSON.parse(cached)
+            token = temp_cached.token
+            const [res_listmovie] = await Promise.all([
+                fetch(PATH_API+"api/moviegenre", {
+                    method: "POST",
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer '+token,
+                    },
+                    body: JSON.stringify({
+                        "client_hostname": PATH,
+                        "slug":params.slug,
+                        "movie_page":0,
+                    }),
                 }),
-            }),
-            
-            fetch(PATH_API+"api/genre", {
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Bearer '+token,
-                },
-                body: JSON.stringify({
-                    "client_hostname": PATH,
-                }),
-            }),
-        ]);
-        const record_listgenre= await res_listgenre.json();
-        const record_listmovie= await res_listmovie.json();
+            ]);
+            const record_listmovie= await res_listmovie.json();
+            const temp_datagender_cached = JSON.parse(cached_gender)
+            redis.set("MOVIEGENDER-"+params.slug, JSON.stringify(record_listmovie), "EX",86400);
+
+            if(record_listmovie.status == 400){
+                throw redirect(307, '/');
+            }
         
-        if(record_listgenre.status == 400){
-            throw redirect(307, '/');
-        }
-    
-        return {
-            list_genre : record_listgenre.record,
-            list_movie : record_listmovie,
-            slug: params.slug,
-            seo_url: seo_url,
+            return {
+                list_genre : temp_datagender_cached.record,
+                list_movie : record_listmovie,
+                slug: params.slug,
+                seo_url: seo_url,
+            }
         }
     }else{
         throw redirect(307, '/');

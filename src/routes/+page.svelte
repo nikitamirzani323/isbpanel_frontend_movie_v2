@@ -23,6 +23,7 @@
 			destroy(){} // noop
 		};
 	}
+  
 </script>
 <Seo 
     title="ISBFILM Nonton Film dan Series Streaming Movie Layarkaca21 Dunia21 Bioskop Cinema21 Box Office Subtitle Indonesia Gratis Online Download - ISBFILM - LK21 - Layarkaca21 - Dunia21" 
@@ -30,13 +31,9 @@
     url="{seo_url}"
     type="Website" />
 
-<article class="mb-3">
-    {#each list_genre as rec}
-        <a href="genre/{rec.movie_slug}" class="btn btn-xs btn-outline btn-success m-1">{rec.movie_genre}</a>
-    {/each}
-</article>
 
-<article class="grid grid-cols-2 gap-1 mb-3">
+
+<article class="grid grid-cols-1 lg:grid-cols-2 gap-1 mb-3 w-full">
     <img src="https://res.cloudinary.com/indosuperbet/image/upload/v1655385218/ADV/banner-gift_wp9tdh.gif" alt="ISB388">
     <img src="https://res.cloudinary.com/indosuperbet/image/upload/v1655440892/ADV/banner-isb388_dxz3im.gif" alt="ISB388">
 </article>
@@ -76,8 +73,8 @@
         {/each}
     </section>  
 </article>
-<article class="grid grid-cols-2 gap-1 w-full">
-    <section class="w-full">
+<article class="grid grid-cols-1 lg:grid-cols-2 gap-1 w-full">
+    <section class="w-full p-1">
         <h3 class="text-xs lg:text-[14px]">ISBFILM</h3>
         <p class="text-xs lg:text-[14px]">
             <strong>Layarkaca21 – LK21 – Dunia21</strong>  adalah sebuah website hiburan yang menyajikan streaming film atau download movie gratis. Subtitle Indonesia.
@@ -122,7 +119,7 @@
             <a href="/">You are the Heroes !</a>
         </p>
     </section>
-    <section class="w-full">
+    <section class="w-full p-1">
         <h3 class="text-xs lg:text-[14px]">KATEGORI FILM</h3>
         {#each list_genre as rec}
             <a href="genre/{rec.movie_slug}" class="btn btn-xs m-1">{rec.movie_genre}</a>

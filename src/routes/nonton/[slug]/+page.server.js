@@ -16,6 +16,7 @@ export const load = async({params,url}) => {
         const temp_cached = JSON.parse(cached)
         token = temp_cached.token
         if(cached_movie){
+            console.log("CACHE "+params.slug)
             const temp_data_cached = JSON.parse(cached_movie) 
             return {
                 list_movie : temp_data_cached.record,
@@ -23,6 +24,7 @@ export const load = async({params,url}) => {
                 seo_url: seo_url,
             }
         }else{
+            console.log("SERVER "+params.slug)
             const [res_listmovie] = await Promise.all([
                 fetch(PATH_API+"api/moviedetail", {
                     method: "POST",
