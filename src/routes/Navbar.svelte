@@ -8,13 +8,13 @@
         
         
     </div>
-    <div class="navbar-center hidden lg:flex">
+    <div class="navbar-center justify-center lg:flex">
         <a href="/" class="btn btn-ghost w-1/2">
-            <img width="100%" src="https://isbfilm.xyz/isbfilm.png" alt="">
+            <img class="w-[100%]" src="https://isbfilm.xyz/isbfilm.png" alt="">
         </a>
     </div>
     <div class="navbar-end p-2">
-        <div class="flex justify-end p-2 bg-base-200 w-1/2 cursor-pointer rounded-lg">
+        <div class="hidden lg:flex justify-end p-2 bg-base-200 w-1/2 cursor-pointer rounded-lg">
             <p class="pr-2">Quick Search</p>
             <svg xmlns="http://www.w3.org/2000/svg" 
                 fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 cursor-pointer">

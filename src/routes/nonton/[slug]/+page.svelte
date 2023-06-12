@@ -9,6 +9,7 @@
     let movie_genre = []
     let movie_source = []
     let source_movie = ""
+    let movie_height = 500
     // console.log(list_movie[0].movie_genre.length)
     // for(let i=0;i<list_movie.length;i++){
     movie_title = list_movie[0].movie_title
@@ -22,11 +23,13 @@
         movie_source = list_movie[0].movie_video
     }
         
-    // }
+    
 
     const call_movie = (e) => {
         source_movie = e
     };
+
+    
 </script>
 <Seo 
     title="ISBFILM Nonton {movie_title} Film dan Series Streaming Download Movie Cinema21 Bioskop Subtitle Indonesia &raquo; Layarkaca21 HD Dunia21 IndoXXI [1]" 
@@ -40,12 +43,12 @@
     </ul>
   </div>
 <article class="grid grid-cols-2 gap-1 mb-3">
-    <img src="https://s1.makimbo.xyz/assets/player-single.gif" alt="">
-    <img src="https://s1.makimbo.xyz/assets/player-single.gif" alt="">
+    <img src="https://res.cloudinary.com/indosuperbet/image/upload/v1655385218/ADV/banner-gift_wp9tdh.gif" alt="ISB388">
+    <img src="https://res.cloudinary.com/indosuperbet/image/upload/v1655440892/ADV/banner-isb388_dxz3im.gif" alt="ISB388">
 </article>
 <article class="lg:flex justify-between w-full gap-2">
     <section class="w-full">
-        <iframe width="100%" height="500" src="{source_movie}" 
+        <iframe class="aspect-auto w-full h-[250px] lg:h-1/2" src="{source_movie}" 
             title="YouTube video player" 
             frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         <section class="flex justify-normal gap-1 py-2 w-full">
@@ -57,15 +60,15 @@
                 {/each}
             </section>
             <section class="flex justify-end gap-1 w-1/2 ">
-                <a href="https://api.whatsapp.com/send/?text=http://localhost:5173/nonton/red-notice-2021&app_absent=0" class="btn btn-primary btn-xs">Whatsapp</a>
-            <a href="https://telegram.me/share/url?url=http://localhost:5173/nonton/red-notice-2021&text=Nonton Film Red Devil" class="btn btn-primary btn-xs">Telegram</a>
+                <a href="https://api.whatsapp.com/send/?text={seo_url}&app_absent=0" class="btn btn-primary btn-xs">Whatsapp</a>
+            <a href="https://telegram.me/share/url?url={seo_url}&text=Nonton Film {movie_title}" class="btn btn-primary btn-xs">Telegram</a>
             </section>
         </section>
         <center class="w-full mt-2">
             <img src="https://s1.makimbo.xyz/assets/below-player-jun.gif" alt="">
         </center>
         <section class="w-full bg-base-200 p-2 mt-3">
-            <h1 class="text-xs lg:text-lg font-medium mb-5">
+            <h1 class="text-[11px] lg:text-lg lg:font-medium mb-5">
                 ISBFILM NONTON {movie_title} FILM SUBTITLE INDONESIA STREAMING MOVIE DOWNLOAD GRATIS ONLINE
             </h1>
             <section class="flex justify-items-start gap-1 mb-5">
@@ -73,7 +76,7 @@
                     <img src="{movie_img}" alt="ISBFILM Nonton {movie_title}" />
                 </section>
                 <section class="w-full ml-10">
-                    <p class="text-md justify-normal">
+                    <p class="text-xs lg:text-md justify-normal">
                         {movie_descp}
                     </p>
                     {#each movie_genre as recgenre}

@@ -37,12 +37,12 @@
 </article>
 
 <article class="grid grid-cols-2 gap-1 mb-3">
-    <img src="https://s1.makimbo.xyz/assets/player-single.gif" alt="">
-    <img src="https://s1.makimbo.xyz/assets/player-single.gif" alt="">
+    <img src="https://res.cloudinary.com/indosuperbet/image/upload/v1655385218/ADV/banner-gift_wp9tdh.gif" alt="ISB388">
+    <img src="https://res.cloudinary.com/indosuperbet/image/upload/v1655440892/ADV/banner-isb388_dxz3im.gif" alt="ISB388">
 </article>
 <article class="glass2 xl:rounded-lg p-2 mb-5">
     <h1 class="p-2 mb-2 font-bold">ISBFILM Movie Terbaru</h1>
-    <section class="grid grid-cols-8 gap-2">
+    <section class="grid grid-cols-2 lg:grid-cols-8 gap-2">
         {#each list_movie_new.record as rec}
         <a href="/nonton/{rec.movie_slug}" class="card bg-base-200 shadow-xl rounded-md cursor-pointer p-1">
             <img
@@ -60,7 +60,7 @@
 </article>
 <article class="glass2 xl:rounded-lg p-2 mb-2">
     <h1 class="p-2 mb-2 font-bold">ISBFILM Movie Update</h1>
-    <section class="grid grid-cols-8 gap-2">
+    <section class="grid grid-cols-2 lg:grid-cols-8 gap-2">
         {#each list_movie_update.record as rec}
         <a href="/nonton/{rec.movie_slug}" class="card bg-base-200 shadow-xl rounded-md cursor-pointer p-1">
             <img
@@ -75,4 +75,57 @@
         </a>
         {/each}
     </section>  
+</article>
+<article class="grid grid-cols-2 gap-1 w-full">
+    <section class="w-full">
+        <h3 class="text-xs lg:text-[14px]">ISBFILM</h3>
+        <p class="text-xs lg:text-[14px]">
+            <strong>Layarkaca21 – LK21 – Dunia21</strong>  adalah sebuah website hiburan yang menyajikan streaming film atau download movie gratis. Subtitle Indonesia.
+        </p>
+        <p class="text-xs lg:text-[14px]">
+            Perlu diketahui, film-film yang terdapat pada web ini didapatkan dari web pencarian di internet. Kami tidak menyimpan file film tersebut di server sendiri dan kami hanya menempelkan link-link tersebut di website kami.
+        </p>
+        <p class="text-xs lg:text-[14px]">
+            <a href="/">ANTV Live Streaming</a>
+            <a href="/">Apa itu Layarkaca21 / Lk21 / Dunia21 ?</a>
+            <a href="/">Bioskopkeren – Nonton Streaming Koleksi Film Terlengkap Bioskop keren</a>
+            <a href="/">Cara menginstall Opera VPN – Gratis</a>
+            <a href="/">Daftar Playlist</a>
+            <a href="/">Dashboard Anggota</a>
+            <a href="/">Digital Millennium Copyright Act (DMCA)</a>
+            <a href="/">Film dengan Komentar Terbanyak</a>
+            <a href="/">Film Terpopuler 2 Bulan Belakangan Ini – Nonton Streaming Download Movie</a>
+            <a href="/">Film Unggulan Hari Ini</a>
+            <a href="/">Halaman Anggota</a>
+            <a href="/">IDLIX Streaming Film / Download Movie Sub Indo</a>
+            <a href="/">IndoXX1 – Nonton Movie 21, Download Film INDOXX1 Ganool LK21</a>
+            <a href="/">IndoXX1 – Streaming Online</a>
+            <a href="/">Layarkaca21 – Nonton Streaming Subtitle Indonesia</a>
+            <a href="/">Lk 21 – Nonton Streaming Film Box Office dan Download</a>
+            <a href="/">Lk21 – Nonton Streaming Film Box Office dan Download</a>
+            <a href="/">Lk21 Rebahin Online Streaming</a>
+            <a href="/">LK21 XXI Online Indonesia – Nonton Koleksi Film LK 21 .ME LK21 .TV Terbaru</a>
+            <a href="/">NET.TV Live Streaming</a>
+            <a href="/">Nonton Film Baru Saja Diupload Download Streaming Movie Subtitle Indonesia</a>
+            <a href="/">Nonton Film Berdasarkan Rating IMDb Tertinggi – Terendah Streaming Gratis Download</a>
+            <a href="/">Pemasangan Iklan</a>
+            <a href="/">Pertanyaan Yang Sering Diajukan – Frequently Asked Questions</a>
+            <a href="/">Petunjuk Cara Download Film</a>
+            <a href="/">Privacy Policy</a>
+            <a href="/">RCTI Live Streaming</a>
+            <a href="/">Rekomendasi Film Pintar</a>
+            <a href="/">Series Upload Terbaru Lk21</a>
+            <a href="/">Streaming Download Film Gratis Sub Indonesia</a>
+            <a href="/">Urutan Film Berdasarkan Judul Movie Subtitle Indonesia Streaming Download</a>
+            <a href="/">Urutan Film Berdasarkan Tahun Pembuatan Nonton Download Streaming Movie</a>
+            <a href="/">YMTV Live Streaming</a>
+            <a href="/">You are the Heroes !</a>
+        </p>
+    </section>
+    <section class="w-full">
+        <h3 class="text-xs lg:text-[14px]">KATEGORI FILM</h3>
+        {#each list_genre as rec}
+            <a href="genre/{rec.movie_slug}" class="btn btn-xs m-1">{rec.movie_genre}</a>
+        {/each}
+    </section>
 </article>

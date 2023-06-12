@@ -42,13 +42,13 @@
 </article>
 
 <article class="grid grid-cols-2 gap-1 mb-3">
-    <img src="https://s1.makimbo.xyz/assets/player-single.gif" alt="">
-    <img src="https://s1.makimbo.xyz/assets/player-single.gif" alt="">
+    <img src="https://res.cloudinary.com/indosuperbet/image/upload/v1655385218/ADV/banner-gift_wp9tdh.gif" alt="ISB388">
+    <img src="https://res.cloudinary.com/indosuperbet/image/upload/v1655440892/ADV/banner-isb388_dxz3im.gif" alt="ISB388">
 </article>
 
 <article class="glass2 xl:rounded-lg p-2 mb-5">
     <h1 class="p-2 mb-2 font-bold">ISBFILM - Kumpulan Film {genre} Terbaru dan Terlengkap</h1>
-    <section class="grid grid-cols-8 gap-2">
+    <section class="grid grid-cols-2 lg:grid-cols-8 gap-2">
         {#each list_movie.record as rec}
         <a href="/nonton/{rec.movie_slug}" class="card bg-base-200 shadow-xl rounded-md cursor-pointer p-1">
             <img
