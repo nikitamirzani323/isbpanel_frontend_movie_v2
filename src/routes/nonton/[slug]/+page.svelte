@@ -1,7 +1,7 @@
 <script>
     import Seo from "$lib/Seo.svelte";
     export let data;
-    const {list_movie,seo_url} = data;
+    const {list_genre,list_movie,seo_url} = data;
 
     let movie_title = ""
     let movie_descp = ""
@@ -87,28 +87,33 @@
         <iframe class="aspect-auto w-full h-[250px] lg:h-[500px]" src="{source_movie}" 
             title="YouTube video player" 
             frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-        <section class="flex justify-normal gap-1 py-2 w-full">
-            <section class="flex justify-start gap-1 w-1/2 ">
+        <section class="lg:flex justify-normal  py-2 w-full">
+            <section class="flex justify-center lg:justify-start gap-1 w-full lg:w-1/2 ">
                 {#each movie_source as recvideo}
                     <button on:click={() => {
                         call_movie(recvideo.movie_src);
                       }} class="btn btn-info btn-xs text-[11px] lg:text-[12px]">{recvideo.movie_title}</button>
                 {/each}
             </section>
-            <section class="flex justify-end gap-1 w-1/2 ">
+            <section class="flex justify-center lg:justify-end gap-1 w-full lg:w-1/2 mt-2 lg:mt-0">
                 <a href="https://api.whatsapp.com/send/?text={seo_url}&app_absent=0" class="btn btn-primary btn-xs text-[11px] lg:text-[12px]">Whatsapp</a>
-            <a href="https://telegram.me/share/url?url={seo_url}&text=Nonton Film {movie_title}" class="btn btn-primary btn-xs text-[11px] lg:text-[12px]">Telegram</a>
+                <a href="https://telegram.me/share/url?url={seo_url}&text=Nonton Film {movie_title}" class="btn btn-primary btn-xs text-[11px] lg:text-[12px]">Telegram</a>
             </section>
         </section>
         <center class="w-full mt-2">
             <img src="https://s1.makimbo.xyz/assets/below-player-jun.gif" alt="">
         </center>
-        <section class="w-full bg-base-200 p-2 mt-3">
+        <section class="w-full bg-base-200 p-2 mt-2">
             <h1 class="text-[11px] lg:text-lg lg:font-medium mb-5">
                 ISBFILM NONTON {movie_title} FILM SUBTITLE INDONESIA STREAMING MOVIE DOWNLOAD GRATIS ONLINE
             </h1>
             <section class="w-full flex mt-3">
-                <img class="w-[80px] lg:w-[150px]" src="{movie_img}" alt="ISBFILM Nonton {movie_title}" />
+                <img
+                    style="border: 1px solid #1e152e;background-color: none;"
+                    class="object-cover w-[80px] lg:w-[150px]"
+                    alt="{movie_title}"
+                    src="https://imagedelivery.net/W-Usm3AjeE17sxpltvGRNA/fd0287a2-353d-4b47-9a6c-9c8df2ab3f00/public"
+                    use:lazy="{{src: movie_img}}">
                 <section class="w-full ml-10 p-1">
                     <p class="text-xs lg:text-md justify-normal">
                         {movie_descp}
@@ -162,4 +167,18 @@
         {/if}
         </section>
     </aside>
+</article>
+<article class="grid grid-cols-1 lg:grid-cols-2 gap-1 w-full">
+    <section class="w-full p-1">
+        <h3 class="text-xs lg:text-[14px]">{movie_title}</h3>
+        <p class="text-xs lg:text-[14px]">
+            Streaming download film nonton {movie_title} online. Full movie gratis subtitle indonesia resolusi 360 480 720 1080 kualitas Bluray, WebDL. Bioskopkeren {movie_title} Indoxxi {movie_title} Cinemaindo {movie_title} Lk21 {movie_title} Layarkaca21 {movie_title} Nonton {movie_title} Download {movie_title} Gratis
+        </p>
+    </section>
+    <section class="w-full p-1">
+        <h3 class="text-xs lg:text-[14px]">KATEGORI FILM</h3>
+        {#each list_genre as rec}
+            <a data-sveltekit-reload href="/genre/{rec.movie_slug}" class="btn btn-xs m-1">{rec.movie_genre}</a>
+        {/each}
+    </section>
 </article>

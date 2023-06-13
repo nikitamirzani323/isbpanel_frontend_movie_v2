@@ -19,7 +19,7 @@
         
     </div>
     <div class="navbar-center justify-center lg:flex">
-        <a href="/" class="btn btn-ghost w-1/2">
+        <a href="/" class="btn bg-transparent border-transparent hover:bg-transparent hover:border-transparent w-1/2">
             <img class="w-1/2 lg:w-[100%]" src="https://isbfilm.xyz/isbfilm.png" alt="">
         </a>
     </div>

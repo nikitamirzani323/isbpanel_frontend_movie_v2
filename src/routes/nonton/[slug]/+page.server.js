@@ -4,12 +4,13 @@ import { redis } from "$lib/server/redis";
 
 // export const prerender = false;
 
-export const load = async({params,url}) => {
+export const load = async({params,url,parent}) => {
     const PATH_API = "http://128.199.241.112:5058/"
     const PATH = url.origin
     const seo_url = url.href
     const cached = await redis.get(PATH+"-token")
     const cached_movie = await redis.get(params.slug)
+    const { list_genre } = await parent();
     let token = "";
     
     if(cached){
@@ -19,6 +20,7 @@ export const load = async({params,url}) => {
             console.log("CACHE "+params.slug)
             const temp_data_cached = JSON.parse(cached_movie) 
             return {
+                list_genre : list_genre,
                 list_movie : temp_data_cached.record,
                 slug: params.slug,
                 seo_url: seo_url,
@@ -48,6 +50,7 @@ export const load = async({params,url}) => {
             }
         
             return {
+                list_genre : list_genre,
                 list_movie : record_listmovie.record,
                 slug: params.slug,
                 seo_url: seo_url,
