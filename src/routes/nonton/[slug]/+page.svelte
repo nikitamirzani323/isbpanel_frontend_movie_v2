@@ -1,8 +1,7 @@
 <script>
     import Seo from "$lib/Seo.svelte";
-    import BannerTop from "$lib/Banner_top.svelte";
     export let data;
-    const {list_genre,list_movie,seo_url} = data;
+    const {list_genre,list_movie,slug, seo_url} = data;
 
     let movie_type = ""
     let movie_title = ""
@@ -12,7 +11,9 @@
     let movie_source = []
     let movie_listmoviegenre = []
     let movie_listmovienew = []
+    let movie_listseason = []
     let source_movie = ""
+    let listepisode = [];
     let panel_moviegenre = true 
     let panel_movienew = false
     movie_type = list_movie[0].movie_type
@@ -32,7 +33,13 @@
     if(list_movie[0].movie_listvideonew != null) {
         movie_listmovienew = list_movie[0].movie_listvideonew
     }
-    console.log(movie_type)
+    if(list_movie[0].movie_listseason != null) {
+        movie_listseason = list_movie[0].movie_listseason
+    }
+    console.log(slug)
+    // console.log(seo_url)
+    // console.log(movie_type)
+    // console.log(movie_listseason)
     const call_movie = (e) => {
         source_movie = e
     };
@@ -48,6 +55,55 @@
                 break;
         }
     }
+    const call_episode = (event) => {
+        if(event.target.value != ""){
+            fetch_episode(event.target.value)
+        }
+	};
+    const handleSelectEpisode = (event) => {
+        if(event.target.value != ""){
+            source_movie = event.target.value
+        }
+    };
+    async function fetch_episode(e) {
+		listepisode = [];
+		const resdata = await fetch("/api/listepisode", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                slug: slug,
+                season_id: parseInt(e)
+            }),
+        });
+        if (!resdata.ok) {
+            const pasarMessage = `An error has occured: ${resdata.status}`;
+            throw new Error(pasarMessage);
+        }else{
+            const jsondata = await resdata.json();
+            if (jsondata.status == 200) {
+                let record = jsondata.record;
+                if (record != null) {
+                    for (var i = 0; i < record.length; i++) {
+                        if(parseInt(i) == 0){
+                            source_movie = record[i]["episode_src"]
+                        }
+                        listepisode = [
+                        ...listepisode,
+                            {
+                                episode_id: record[i]["episode_id"],
+                                episode_title: record[i]["episode_title"],
+                                episode_src: record[i]["episode_src"],
+                            },
+                        ];
+                    }
+                } else {
+                    alert("Error");
+                }
+            }
+		}
+	}
     const loaded = new Map();
     function lazy(node, data) {
 		if (loaded.has(data.src)) {
@@ -68,7 +124,7 @@
 			destroy(){} // noop
 		};
 	}
-   
+
 </script>
 <Seo 
     title="ISBFILM Nonton {movie_title} Film dan Series Streaming Download Movie Cinema21 Bioskop Subtitle Indonesia &raquo; Layarkaca21 HD Dunia21 IndoXXI [1]" 
@@ -83,8 +139,27 @@
 </div>
 <article class="lg:flex  w-full gap-2">
     <section class="w-full">
+        {#if movie_type == "serie"}
+        <section class="flex justify-center gap-2 w-full mb-2">
+            <select on:change={call_episode}
+                name="" id="" class="w-1/2 p-2 rounded-md text-md">
+                <option value="">--Select Season--</option>
+                {#each movie_listseason as rec}
+                    <option value="{rec.season_id}">{rec.season_title}</option>
+                {/each}
+            </select>
+            <select
+                on:change={handleSelectEpisode} 
+                name="" id="" class="w-1/2 rounded-md text-md">
+                <option value="">--Select Episode--</option>
+                {#each listepisode as rec}
+                    <option value="{rec.episode_src}">{rec.episode_title}</option>
+                {/each}
+            </select>
+        </section>
+        {/if}
         <iframe class="aspect-auto w-full h-[250px] lg:h-[500px]" src="{source_movie}" 
-            title="YouTube video player" 
+            title="{movie_title}" 
             frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         <section class="lg:flex justify-normal  py-2 w-full">
             <section class="flex justify-center lg:justify-start gap-1 w-full lg:w-1/2 ">

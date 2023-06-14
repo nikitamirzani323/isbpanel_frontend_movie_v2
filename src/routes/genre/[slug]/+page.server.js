@@ -9,7 +9,6 @@ export const load = async({params,url,parent}) => {
     const seo_url = url.href
     const cached = await redis.get(PATH+"-token")
     const cached_moviegender = await redis.get("MOVIEGENDER-"+params.slug)
-    const cached_gender = await redis.get("GENDER")
     const { list_genre } = await parent();
     let token = "";
     
@@ -45,7 +44,6 @@ export const load = async({params,url,parent}) => {
                 }),
             ]);
             const record_listmovie= await res_listmovie.json();
-            const temp_datagender_cached = JSON.parse(cached_gender)
             redis.set("MOVIEGENDER-"+params.slug, JSON.stringify(record_listmovie), "EX",86400);
 
             if(record_listmovie.status == 400){
