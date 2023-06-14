@@ -30,6 +30,7 @@
     <meta property="twitter:title" content="{title}">
     <meta property="twitter:description" content="{descp}">
     <meta property="twitter:image" content="https://i.ibb.co/7Ypydpk/Screenshot-2.png">
+    <meta name="google-site-verification" content="aLxLna54wzt3b94kQQ86baGQerH2xAKpFAIUodE9dE4" />
     {@html `<script type="application/ld+json">
         {
             "@context": "http://schema.org",

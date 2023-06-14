@@ -100,9 +100,6 @@
                 <a href="https://telegram.me/share/url?url={seo_url}&text=Nonton Film {movie_title}" class="btn btn-primary btn-xs text-[11px] lg:text-[12px]">Telegram</a>
             </section>
         </section>
-        <center class="w-full mt-2">
-            <img src="https://s1.makimbo.xyz/assets/below-player-jun.gif" alt="">
-        </center>
         <section class="w-full bg-base-200 p-2 mt-2">
             <h1 class="text-[11px] lg:text-lg lg:font-medium mb-5">
                 ISBFILM NONTON {movie_title} FILM SUBTITLE INDONESIA STREAMING MOVIE DOWNLOAD GRATIS ONLINE
