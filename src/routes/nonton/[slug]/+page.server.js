@@ -12,7 +12,6 @@ export const load = async({params,url,parent}) => {
     const cached_movie = await redis.get(params.slug)
     const { list_genre } = await parent();
     let token = "";
-    
     if(cached){
         const temp_cached = JSON.parse(cached)
         token = temp_cached.token

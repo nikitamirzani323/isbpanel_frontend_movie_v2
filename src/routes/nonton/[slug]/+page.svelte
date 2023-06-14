@@ -1,8 +1,10 @@
 <script>
     import Seo from "$lib/Seo.svelte";
+    import BannerTop from "$lib/Banner_top.svelte";
     export let data;
     const {list_genre,list_movie,seo_url} = data;
 
+    let movie_type = ""
     let movie_title = ""
     let movie_descp = ""
     let movie_img = ""
@@ -13,6 +15,7 @@
     let source_movie = ""
     let panel_moviegenre = true 
     let panel_movienew = false
+    movie_type = list_movie[0].movie_type
     movie_title = list_movie[0].movie_title
     movie_descp = list_movie[0].movie_descp
     movie_img = list_movie[0].movie_img
@@ -29,7 +32,7 @@
     if(list_movie[0].movie_listvideonew != null) {
         movie_listmovienew = list_movie[0].movie_listvideonew
     }
-
+    console.log(movie_type)
     const call_movie = (e) => {
         source_movie = e
     };
@@ -78,10 +81,6 @@
         <li>{movie_title}</li>
     </ul>
 </div>
-<article class="grid grid-cols-1 lg:grid-cols-2 gap-1 mb-3 w-full">
-    <img src="https://res.cloudinary.com/indosuperbet/image/upload/v1655385218/ADV/banner-gift_wp9tdh.gif" alt="ISB388">
-    <img src="https://res.cloudinary.com/indosuperbet/image/upload/v1655440892/ADV/banner-isb388_dxz3im.gif" alt="ISB388">
-</article>
 <article class="lg:flex  w-full gap-2">
     <section class="w-full">
         <iframe class="aspect-auto w-full h-[250px] lg:h-[500px]" src="{source_movie}" 

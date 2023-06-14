@@ -39,6 +39,7 @@ export const load = async({params,url,parent}) => {
                     body: JSON.stringify({
                         "client_hostname": PATH,
                         "slug":params.slug,
+                        "movie_perpage":40,
                         "movie_page":0,
                     }),
                 }),

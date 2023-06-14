@@ -36,10 +36,6 @@
     type="Website" />
 
 
-<article class="grid grid-cols-1 lg:grid-cols-2 gap-1 mb-3 w-full">
-    <img src="https://res.cloudinary.com/indosuperbet/image/upload/v1655385218/ADV/banner-gift_wp9tdh.gif" alt="ISB388">
-    <img src="https://res.cloudinary.com/indosuperbet/image/upload/v1655440892/ADV/banner-isb388_dxz3im.gif" alt="ISB388">
-</article>
 
 <article class="glass2 xl:rounded-lg p-2 mb-5">
     <h1 class="p-2 mb-2 font-bold">ISBFILM - Kumpulan Film {genre} Terbaru dan Terlengkap</h1>
