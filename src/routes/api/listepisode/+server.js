@@ -30,7 +30,7 @@ export const POST = async({request,url}) => {
         });
         // console.log(object)
         const jsondata = await resdata.json();
-        redis.set("EPISODE-"+object.slug+"-"+object.season_id, JSON.stringify(jsondata), "EX",86400);
+        redis.set("EPISODE-"+object.slug+"-"+object.season_id, JSON.stringify(jsondata), "EX",172800);//2 DAY
         return new Response(JSON.stringify(jsondata),{
             headers:{
                 "Content-Type":"application.json"
