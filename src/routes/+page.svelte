@@ -30,10 +30,7 @@
     url="{seo_url}"
     type="Website" />
 
-
-
-
-<article class="glass2 xl:rounded-lg p-2 mb-5">
+<article class="lg:glass2 xl:rounded-lg p-2 mb-5">
     <h1 class="p-2 mb-2 font-bold">ISBFILM Movie Terbaru</h1>
     <section class="grid grid-cols-2 lg:grid-cols-8 gap-2">
         {#each list_movie_new.record as rec}
@@ -51,7 +48,7 @@
         {/each}
     </section>  
 </article>
-<article class="glass2 xl:rounded-lg p-2 mb-2">
+<article class="lg:glass2 xl:rounded-lg p-2 mb-2">
     <h1 class="p-2 mb-2 font-bold">ISBFILM Movie Rekomendasi</h1>
     <section class="grid grid-cols-2 lg:grid-cols-8 gap-2">
         {#each list_movie_random.record as rec}
@@ -69,7 +66,7 @@
         {/each}
     </section>  
 </article>
-<article class="glass2 xl:rounded-lg p-2 mb-2">
+<article class="lg:glass2 xl:rounded-lg p-2 mb-2">
     <h1 class="p-2 mb-2 font-bold">ISBFILM Movie Update</h1>
     <section class="grid grid-cols-2 lg:grid-cols-8 gap-2">
         {#each list_movie_update.record as rec}

@@ -131,13 +131,13 @@
     descp="ISBFILM Nonton {movie_title} Film dan Series Streaming Download Movie Cinema21 Bioskop Subtitle Indonesia &raquo; Layarkaca21 HD Dunia21 IndoXXI [1]" 
     url="{seo_url}"
     type="Website" />
-<div class="text-sm breadcrumbs">
+<div class="text-sm breadcrumbs px-1 lg:px-0">
     <ul>
         <li><a href="/">Home</a></li> 
         <li>{movie_title}</li>
     </ul>
 </div>
-<article class="lg:flex  w-full gap-2">
+<article class="lg:flex w-full gap-2 px-1 lg:px-0">
     <section class="w-full">
         {#if movie_type == "serie"}
         <section class="flex justify-center gap-2 w-full mb-2">
@@ -239,7 +239,7 @@
         </section>
     </aside>
 </article>
-<article class="grid grid-cols-1 lg:grid-cols-2 gap-1 w-full">
+<article class="grid grid-cols-1 lg:grid-cols-2 gap-1 w-full px-1 lg:px-0">
     <section class="w-full p-1">
         <h3 class="text-xs lg:text-[14px]">{movie_title}</h3>
         <p class="text-xs lg:text-[14px]">
