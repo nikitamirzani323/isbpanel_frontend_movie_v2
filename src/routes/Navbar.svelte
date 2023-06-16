@@ -130,7 +130,7 @@
 
 <div on:click={() => {
     call_sarchmovie();
-    }} class="flex lg:hidden justify-center p-2  bg-base-200 w-full cursor-pointer rounded-lg">
+    }} class="flex lg:hidden justify-center p-2  bg-base-200 w-full cursor-pointer rounded-md px-2">
     <p class="pr-2">Quick Search</p>
     <svg xmlns="http://www.w3.org/2000/svg" 
         fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 cursor-pointer">
