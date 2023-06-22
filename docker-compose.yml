@@ -3,7 +3,7 @@ version: '2'
 services:
   isbpanel-frontend-movie:
     container_name: isbpanel-frontend-movie
-    image: isbpanel-frontend-movie:0.2.4
+    image: isbpanel-frontend-movie:0.0.1
     build: .
     volumes:
     - ./frontendmovie:/app/frontendmovie
